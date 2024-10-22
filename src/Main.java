@@ -1,10 +1,10 @@
-import java.util.Scanner;
+import HomeWork.Les2.HomeWork_1;
 
-public class Main {
+public class Main
+{
     public static void main(String[] args)
     {
         System.out.println("Hello world!");
         HomeWork_1 homeWork1 = new HomeWork_1();
-
     }
 }

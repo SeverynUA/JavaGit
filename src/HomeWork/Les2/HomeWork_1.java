@@ -1,9 +1,11 @@
-import java.io.PrintStream;
+package HomeWork.Les2;
+
 import java.util.*;
 
-class HomeWork_1
+public class HomeWork_1
 {
-    public HomeWork_1() {
+    public HomeWork_1()
+    {
         Scanner sc = new Scanner(System.in);
         System.out.print("Please enter a ex: ");
         int ex = sc.nextInt();
