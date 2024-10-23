@@ -1,4 +1,4 @@
-package Practice.Les4.Models;
+package Practice.Les4.Ex1;
 
 public class LivePlace implements printInfo
 {
@@ -35,11 +35,38 @@ public class LivePlace implements printInfo
         return human;
     }
 
+    public void setTown(String town)
+    {
+        if(town != null)
+        {
+            this.town = town;
+        }
+        return;
+    }
+
+    public void setCountry(String country)
+    {
+        if(country != null)
+        {
+            this.country = country;
+        }
+        return;
+    }
+
+    public void setAddress(String address)
+    {
+        if(address != null)
+        {
+            this.address = address;
+        }
+        return;
+    }
+
     @Override
-    public void PrintInfo_person() {
+    public void PrintInfo_person()
+    {
         System.out.println("Town: " + town);
         System.out.println("Country: " + country);
         System.out.println("Address: " + address);
-        human.PrintInfo_person();
     }
 }

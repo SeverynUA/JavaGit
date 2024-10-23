@@ -1,4 +1,4 @@
-package Practice.Les4.Models;
+package Practice.Les4.Ex1;
 
 public class Contact implements printInfo
 {
@@ -16,6 +16,15 @@ public class Contact implements printInfo
         return phone;
     }
 
+    public void setPhone(String phone)
+    {
+        if(phone != null)
+        {
+            this.phone = phone;
+        }
+        return;
+    }
+
     public Human getHuman()
     {
         return human;
@@ -25,7 +34,6 @@ public class Contact implements printInfo
     public void PrintInfo_person()
     {
         System.out.println("Phone: " + phone);
-        human.PrintInfo_person();
     }
 }
 

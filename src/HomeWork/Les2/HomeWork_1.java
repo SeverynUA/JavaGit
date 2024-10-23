@@ -225,7 +225,6 @@ public class HomeWork_1
             array[i] = random.nextInt(201) - 100;
         }
 
-        // Виводимо масив
         System.out.println("Масив випадкових чисел від 0 до 100:");
         for (int num : array)
         {
