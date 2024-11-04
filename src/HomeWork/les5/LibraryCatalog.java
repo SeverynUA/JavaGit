@@ -14,7 +14,6 @@ public class LibraryCatalog
 {
     private List<ILibraryItem> items = new ArrayList<>();
 
-    // Метод для добавления элементов
     public void AddItem(ILibraryItem item) {
         if (item != null) {
             items.add(item);
@@ -22,7 +21,6 @@ public class LibraryCatalog
         }
     }
 
-    // Метод для отображения всех элементов
     public void DisplayAllItems() {
         System.out.println("Library Catalog:");
         for (ILibraryItem item : items) {
@@ -31,7 +29,6 @@ public class LibraryCatalog
         }
     }
 
-    // Метод для поиска по названию
     public void SearchByTitle(String title) {
         System.out.println("Searching for title: " + title);
         for (ILibraryItem item : items) {
@@ -43,7 +40,6 @@ public class LibraryCatalog
         System.out.println("Item with title '" + title + "' not found.");
     }
 
-    // Метод для поиска по автору (только для книг)
     public void SearchByAuthor(String author) {
         System.out.println("Searching for author: " + author);
         for (ILibraryItem item : items) {
@@ -55,7 +51,6 @@ public class LibraryCatalog
         System.out.println("No books found by author '" + author + "'.");
     }
 
-    // Метод для тестовой инициализации
     public void InitializeCatalog() {
         AddItem(new Book("The Great Gatsby", "F. Scott Fitzgerald", "Novel", 180));
         AddItem(new Book("To Kill a Mockingbird", "Harper Lee", "Novel", 281));

@@ -1,16 +1,16 @@
+
+
 import HomeWork.les5.Interface.ILibraryItem;
 import HomeWork.les5.LibraryCatalog;
-import HomeWork.les5.Models.Almanac;
 import HomeWork.les5.Models.Book;
 import HomeWork.les5.Models.Newspaper;
+import HomeWork.les5.Models.Almanac;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 
-public class Main
-{
-    public static void main(String[] arg)
-    {
+public class Main {
+    public static void main(String[] args) {
         LibraryCatalog catalog = new LibraryCatalog();
 
         // Тестова ініціалізація каталогу
