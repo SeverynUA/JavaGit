@@ -51,7 +51,8 @@ public class LibraryCatalog
         System.out.println("No books found by author '" + author + "'.");
     }
 
-    public void InitializeCatalog() {
+    public void InitializeCatalog()
+    {
         AddItem(new Book("The Great Gatsby", "F. Scott Fitzgerald", "Novel", 180));
         AddItem(new Book("To Kill a Mockingbird", "Harper Lee", "Novel", 281));
         AddItem(new Newspaper("The Daily News", LocalDate.now(), Arrays.asList("Breaking News", "Sports Highlights")));
