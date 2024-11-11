@@ -3,7 +3,8 @@ package HomeWork.les6;
 import java.util.Scanner;
 
 public class StringTest {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // Створення різних строк
         // 1) Літерал
         String strLiteral = "Hello World";

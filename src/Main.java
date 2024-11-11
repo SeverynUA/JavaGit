@@ -1,44 +1,46 @@
+import HomeWork.les7.Models.Building;
+import HomeWork.les7.Models.School.School;
+import HomeWork.les7.Models.School.SchoolType;
+import HomeWork.les7.Models.Shop.DepartmentType;
+import HomeWork.les7.Models.Shop.Shop;
+import HomeWork.les7.Models.Shop.ShopType;
 
-
-import HomeWork.les5.Interface.ILibraryItem;
-import HomeWork.les5.LibraryCatalog;
-import HomeWork.les5.Models.Book;
-import HomeWork.les5.Models.Newspaper;
-import HomeWork.les5.Models.Almanac;
-
-import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
-        LibraryCatalog catalog = new LibraryCatalog();
+    public static void main(String[] args)
+    {
+        // Створення будівель
+        List<Building> buildings = new ArrayList<>();
 
-        // Тестова ініціалізація каталогу
-        ILibraryItem book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "Fiction", 180);
-        ILibraryItem book2 = new Book("To Kill a Mockingbird", "Harper Lee", "Fiction", 281);
+        // Створення шкіл
+        School school = new School("123 School Ave", SchoolType.GYMNASIUM);
+        buildings.add(school);
 
-        ILibraryItem newspaper1 = new Newspaper("The Daily News", LocalDate.of(2024, 10, 15),
-                Arrays.asList("Headline 1", "Headline 2", "Headline 3"));
+        // Створення магазинів
+        List<DepartmentType> departments = new ArrayList<>();
+        departments.add(DepartmentType.GROCERIES);
+        departments.add(DepartmentType.CLOTHING);
+        Shop shop = new Shop("456 Shop St", ShopType.SUPERMARKET, departments);
+        buildings.add(shop);
 
-        ILibraryItem almanac1 = new Almanac("Literary Almanac",
-                Arrays.asList("Short Story by Author A", "Poem by Author B", "Essay by Author C"));
+        // Виведення інформації про всі будівлі
+        System.out.println("Initial Buildings:");
+        for (Building building : buildings) {
+            building.displayInfo();
+        }
 
-        // Додаємо елементи в каталог
-        catalog.AddItem(book1);
-        catalog.AddItem(book2);
-        catalog.AddItem(newspaper1);
-        catalog.AddItem(almanac1);
+        // Зміна адреси для школи
+        school.setAddress("789 New School Ave");
+        System.out.println("\nAfter Changing School Address:");
+        school.displayInfo();
 
-        // Виведення всіх елементів
-        System.out.println("\n--- Displaying All Items ---");
-        catalog.DisplayAllItems();
-
-        // Пошук по назві
-        System.out.println("\n--- Searching for 'The Great Gatsby' ---");
-        catalog.SearchByTitle("The Great Gatsby");
-
-        // Пошук по автору
-        System.out.println("\n--- Searching for books by 'Harper Lee' ---");
-        catalog.SearchByAuthor("Harper Lee");
+        // Видалення магазину з колекції
+        buildings.remove(shop);
+        System.out.println("\nAfter Removing the Shop:");
+        for (Building building : buildings) {
+            building.displayInfo();
+        }
     }
 }
