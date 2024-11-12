@@ -1,3 +1,5 @@
+import HomeWork.Les8.ATM;
+import HomeWork.Les8.Bank;
 import HomeWork.les7.Models.Building;
 import HomeWork.les7.Models.School.School;
 import HomeWork.les7.Models.School.SchoolType;
@@ -11,36 +13,14 @@ import java.util.List;
 public class Main {
     public static void main(String[] args)
     {
-        // Створення будівель
-        List<Building> buildings = new ArrayList<>();
+        Bank bank = new Bank();
+        bank.displayAllATMStatus();
 
-        // Створення шкіл
-        School school = new School("123 School Ave", SchoolType.GYMNASIUM);
-        buildings.add(school);
+        ATM atm1 = bank.getATM(1);
 
-        // Створення магазинів
-        List<DepartmentType> departments = new ArrayList<>();
-        departments.add(DepartmentType.GROCERIES);
-        departments.add(DepartmentType.CLOTHING);
-        Shop shop = new Shop("456 Shop St", ShopType.SUPERMARKET, departments);
-        buildings.add(shop);
+        atm1.withdraw(12345);
+        atm1.displayATMStatus();
 
-        // Виведення інформації про всі будівлі
-        System.out.println("Initial Buildings:");
-        for (Building building : buildings) {
-            building.displayInfo();
-        }
-
-        // Зміна адреси для школи
-        school.setAddress("789 New School Ave");
-        System.out.println("\nAfter Changing School Address:");
-        school.displayInfo();
-
-        // Видалення магазину з колекції
-        buildings.remove(shop);
-        System.out.println("\nAfter Removing the Shop:");
-        for (Building building : buildings) {
-            building.displayInfo();
-        }
+        bank.displayAllATMAmount();
     }
 }
