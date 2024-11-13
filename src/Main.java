@@ -22,5 +22,8 @@ public class Main {
         atm1.displayATMStatus();
 
         bank.displayAllATMAmount();
+
+        atm1.deposit();
+        atm1.displayATMStatus();
     }
 }

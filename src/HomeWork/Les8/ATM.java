@@ -1,4 +1,6 @@
 package HomeWork.Les8;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ATM {
     private int countOf_1;
@@ -29,11 +31,10 @@ public class ATM {
         maxBanknotesForWithdrawal = 40;     // Максимум 40 банкнот за один раз
     }
 
-    // Метод для завантаження грошей у банкомат
+
     public void initializeATM(int countOf_1, int countOf_2, int countOf_5, int countOf_10,
                               int countOf_20, int countOf_50, int countOf_100,
-                              int countOf_200, int countOf_500)
-    {
+                              int countOf_200, int countOf_500) {
         this.countOf_1 = countOf_1;
         this.countOf_2 = countOf_2;
         this.countOf_5 = countOf_5;
@@ -45,10 +46,58 @@ public class ATM {
         this.countOf_500 = countOf_500;
     }
 
-    public void depost()
+    public void upgradeATM(int[] array_count)
     {
-
+        this.countOf_1 += array_count[0];
+        this.countOf_2 += array_count[1];
+        this.countOf_5 += array_count[2];
+        this.countOf_10 += array_count[3];
+        this.countOf_20 += array_count[4];
+        this.countOf_50 += array_count[5];
+        this.countOf_100 += array_count[6];
+        this.countOf_200 += array_count[7];
+        this.countOf_500 += array_count[8];
     }
+
+    public void deposit()
+    {
+        int[] array_count = new int[9];
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введіть кількість купюр для кожного номіналу:");
+
+        int[] denominations = {1, 2, 5, 10, 20, 50, 100, 200, 500};
+
+        for (int i = 0; i < denominations.length; i++) {
+            int denomination = denominations[i];
+            while (true) {
+                System.out.print("Купюри номіналом " + denomination + " грн: ");
+                try {
+                    int count = scanner.nextInt();
+
+                    if (count >= 0) {
+                        array_count[i] = count;
+                        break;
+                    } else {
+                        System.out.println("Будь ласка, введіть 0 або більше.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Помилка: введіть ціле число.");
+                    scanner.next();
+                }
+            }
+        }
+
+        scanner.close();
+
+        System.out.println("Ви ввели наступні дані про купюри:");
+        for (int i = 0; i < denominations.length; i++) {
+            System.out.println(denominations[i] + " грн: " + array_count[i]);
+        }
+
+        upgradeATM(array_count);
+    }
+
 
     public boolean withdraw(int amount)
     {
@@ -79,14 +128,12 @@ public class ATM {
             }
         }
 
-        // Перевірка, чи вдалося видати повну суму
         if (remainingAmount > 0)
         {
             System.out.println("Помилка: недостатньо банкнот для видачі потрібної суми.");
             return false;
         }
 
-        // Оновлення кількості банкнот у банкоматі після видачі
         countOf_500 -= dispensedBanknotes[0];
         countOf_200 -= dispensedBanknotes[1];
         countOf_100 -= dispensedBanknotes[2];

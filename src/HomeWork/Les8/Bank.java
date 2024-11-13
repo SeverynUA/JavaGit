@@ -10,7 +10,7 @@ public class Bank
     public Bank()
     {
         this.atms = new ArrayList<>();
-        initializeATMs(); // Ініціалізація банкоматів
+        initializeATMs();
     }
 
     private void initializeATMs()
@@ -21,7 +21,6 @@ public class Bank
         }
     }
 
-    // Метод для отримання банкомата за індексом
     public ATM getATM(int index)
     {
         if (index >= 0 && index < atms.size())
@@ -33,7 +32,6 @@ public class Bank
         }
     }
 
-    // Метод для виведення інформації про всі банкомати
     public void displayAllATMStatus()
     {
         for (int i = 0; i < atms.size(); i++)
