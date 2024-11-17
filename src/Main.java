@@ -10,6 +10,7 @@ import HomeWork.les7.Models.School.SchoolType;
 import HomeWork.les7.Models.Shop.DepartmentType;
 import HomeWork.les7.Models.Shop.Shop;
 import HomeWork.les7.Models.Shop.ShopType;
+import HomeWork.les9.User;
 
 import java.util.ArrayList;
 import java.util.HashSet;
