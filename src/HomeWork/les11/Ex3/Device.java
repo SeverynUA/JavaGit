@@ -113,6 +113,7 @@ public class Device
         System.out.println(deviceManager.getDevicesByYearRange(2000,2021));
         System.out.println();
         System.out.println();
+        System.out.println();
     }
 }
 
